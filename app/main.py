@@ -7,7 +7,7 @@ app = FastAPI()
 
 SOURCE_DIR = os.getenv("SOURCE_DIR")
 
-@app.get("/stream/{filename}")
+@app.get("/stream/{filename:path}")
 async def stream_video(filename: str, request: Request):
     file_path = os.path.join(SOURCE_DIR, filename)
     if not os.path.exists(file_path):

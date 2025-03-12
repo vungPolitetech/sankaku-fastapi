@@ -19,7 +19,7 @@ pip install "fastapi[standard]" uvicorn
 
 🚀 Run the FastAPI Server
 ```bash
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
 
 ### Deployment
