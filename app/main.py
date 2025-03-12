@@ -9,7 +9,6 @@ SOURCE_DIR = os.getenv("SOURCE_DIR")
 
 @app.get("/stream/{filename}")
 async def stream_video(filename: str, request: Request):
-    print("SOURCE_DIR===>", SOURCE_DIR)
     file_path = os.path.join(SOURCE_DIR, filename)
     if not os.path.exists(file_path):
         return Response("File not found", status_code=404)

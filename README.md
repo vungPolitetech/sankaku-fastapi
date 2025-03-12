@@ -27,10 +27,10 @@ uvicorn main:app --reload
 ```bash
 pm2 start start.sh --name fastapi-app
 ```
-## Use with docker
+### Use with docker
 ```bash
 docker build -t fastapi-app .
 ```
 ```bash
-docker run -d -p 8000:8000 fastapi-app
+docker run -d -p 8003:8003 fastapi-app
 ```

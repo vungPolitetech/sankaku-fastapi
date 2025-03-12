@@ -8,4 +8,6 @@ services:
       - "8003:8003"
     env_file:
       - .env
+    volumes:
+      - ${STORAGE_PATH}:${SOURCE_DIR}
     restart: always
