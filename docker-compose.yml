@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  fastapi:
+    container_name: fastapi-app
+    build: .
+    ports:
+      - "8003:8003"
+    env_file:
+      - .env
+    restart: always
