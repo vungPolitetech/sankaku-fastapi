@@ -1,9 +1,19 @@
 from fastapi import FastAPI, Response, Request
 import os
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()
 app = FastAPI()
+
+# Allow CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 SOURCE_DIR = os.getenv("SOURCE_DIR")
 
@@ -36,6 +46,7 @@ async def stream_video(filename: str, request: Request):
         "Accept-Ranges": "bytes",
         "Content-Length": str(content_length),
         "Content-Type": "video/mp4",
+        "Access-Control-Allow-Origin": "*",  # Add CORS header directly
     }
 
     return Response(video_data, status_code=206, headers=headers)
